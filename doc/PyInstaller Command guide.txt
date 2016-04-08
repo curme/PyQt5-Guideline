@@ -1,0 +1,25 @@
+1.Installation
+
+    run command: pip install pyinstaller.
+
+2.Generate executable
+
+    2.1 On OSX EI
+
+        to generate one-file executable under UNIX
+
+            run command: pyinstaller script_name -F
+
+        to generate one-file executable under OSX and UNIX
+
+            run command: pyinstaller script_name -F -windowed
+
+    2.2 On Windows 10
+
+        to generate one-file executable under Windows
+
+            run command: pyinstaller --onefile --windowed script_name.py
+
+3.Executable
+
+    locate on \dist\

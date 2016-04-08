@@ -1,0 +1,1436 @@
+PyQt is one of three main stream python graphical interface toolkits. Other two are PyGTK and wxPython.
+This code guide is used to widget and functions quick searching, most of the codes come from Zetcode (http://zetcode.com/gui/pyqt5/).
+Python version is 2.7.11.
+
+Content:
+----Widgets I-------------------------------------------------------------------------------------
+     1. Basic qt application with a sample widget
+          the usage of QWidget, and:
+          QWidget.resize() - to size the widget
+          QWidget.move() - to init widget position by left-top corner
+          QWidget.setWindowTitle()
+          QWidget.show(), QWidget.showFullScreen() - to show window in different style
+     2. Icon
+          how to use window QIcon, and:
+          setGeometry() - combine resize() with move()
+     3. Tooltip
+          how to use tooltip, and:
+          how to use QPushButton
+          sizeHint() - to give a recommended size of widget
+     4. Close
+          how to close the window programatically, and:
+          how to get QPushButton.clicked signal
+     5. Message
+          how to pop out message box, and:
+          how to reimplement close event handle
+     6. Center
+          how to centre the window, and:
+          get desktop geometry
+     7. Status Bar
+          how to create status bar and add content into, and:
+          inherit from QMainWindow rather than a QWidget
+     8. Menu Bar
+          how to create menu bar and how to add action into menu, and:
+          the way to create menu bar specially under OSX
+          setShortcut() - set the short cut to action
+          setStatusTip() - to show tips in status bar
+          how to get QAction.triggered signal
+     9. Central Widget
+          how to set the central widget for main window, and:
+          QTextEdit - the Qt text edit widget
+          QWidget.setCentralWidget() - set central widget for a QWidget
+     10. Absolute Position
+          how to use absolute position, and:
+          QLabel - the Qt label widget
+----Layouts-------------------------------------------------------------------------------------
+     11. Box Layout
+          how to layout the interface in box style, including:
+          QHBoxLayout - horizon layout type
+          QVBoxLayout - vertical layout type
+          QBoxLayout.addStretch() - add a blank stretch into the box layout
+          QBoxLayout.addWidget() - add a widget into the box layout
+          addLayout() - add other layout into the current layout
+          setLayout() - set the layout for the QWidget
+     12. Grid Layout
+          how to layout the interface in grid style, including:
+          QGridLayout - grid layout type
+          QGridLayout.addWidget() - add the widget into the specific position in grid
+     13. Extra Layout Example
+          QLineEdit - similar to QTextEdit, but in only one line
+          QGridLayout.setSpacing() - to set the spacing inside the grid
+          QGridLayout.addWidget() - add the widget into the specific position with specific area
+----Event------------------------------------------------------------------------------------
+     14. Signal and Slot
+          how to use signal and slot mechanism in PyQt5, and:
+          QLCDNumber() - a widget to display numbers
+          QSlider() - a slider bar with a knob to change value
+     15. Reimplement Event Handle
+          how to rewrite the event handle, including:
+          keyPressEvent - the event when a key was pressed
+     16. Event Sender
+          how to get the event sender, including:
+          sender() - the sender of event
+     17.  Emit Signal
+          how to emit a signal, and:
+          pyqtSignal() -   new a qt signal
+          pyqtSignal.emit() - emit signal
+          mousePressEvent - the event when the mouse click
+----Dialog------------------------------------------------------------------------------------
+    18. Input Dialog
+          how to create a QInputDialog widget to get an input, and:
+          QInputDialog.getText() - get text content from input dialog
+     19. Color Dialog
+          how to create a QColorDialog widget to pick a color, and:
+          QColor - Qt color data
+          QFrame -  an area
+          QColorDialog.getColor() - get color from color dialog
+          QWidget.setStyleSheet() - set the QSS for widget
+     20. Font Dialog
+          how to create a QFontDialog widget to pick a font, and:
+          QFontDialog.getFont() - get font from font dialog
+          QWidget.setFont() - set the font for widget
+     21. File Dialog
+          how to create a QFileDialog widget to pick a file, and:
+          QFileDialog.getOpenFileName() - get picked file name from file widget
+          open() - open file by file name
+          file.read() - read file content
+          QTextEdit.setText() - set text content for text edit widget
+----Widgets II-------------------------------------------------------------------------------------
+     22. Check Box
+          how to create QCheckBox, and:
+          QCheckBox.toggle() - toggle a check box
+          QCheckBox.stateChanged - check box state change signal
+     23. Toggle Button
+          how to make button toggled, and:
+          QPushButton.setCheckable() - to set if the button can be checked or not
+          QColor.setRed, QColor.setBule, QColor.setGreen - set basic color for QColor
+     24. Slider
+          how to use QSlider, and:
+          QSlider.setFocusPolicy()
+          QPixmap - Qt small image data
+          QLabel.setPixmap() - set pixmap image for label
+     25. Progress Bar
+          how to create a QProgressBar widget, and:
+          QBasicTimer - Qt timer
+          QBasicTimer.start(), QBasicTimer.stop() - start and stop a Qt timer
+          timerEvent - rewrite timer work processing
+          QProgressBar.setValue() - change value of progress bar
+     26. Calendar
+          how to create QCalendarWidget widget, and:
+          QDate - Qt date data
+          QDate.toString() - convert date to string
+          QCalendarWidget.selectedDate() - return the selected date in calendar widget
+     27. Pixmap
+          how to create a QPixmap
+     28. Line Edit
+          how to create a QLineEdit, and:
+          QLabel.adjustSize() - to adjust the label size to the text length
+          QLineEdit.textChanged - the signal when the line edit text changed
+     29. Splitter
+          how to create a QSplitter, and:
+          QFrame.setFrameShape() - set the shape for QFrame
+          QSplitter.addWidget() - add widget into splitter orderly
+     30. Combo Box
+          how to create a QComboBox, and:
+          QComboBox.addItem() - add item into combo list
+          QComboBox.activated - signal when a combo item is selected
+----Drag and Drop-------------------------------------------------------------------------------------
+     31. Simple Drag and Drop
+          how to implement drag and drop operations, including:
+          rewrite costumed button
+          QWidget.setAcceptDrop() - to enable the widget accept drop operation
+          dragEnterEvent - rewrite the event when dragging items into widget
+          dropEvent - rewrite the event when dropping items into widget
+          QWidget.setDragEnabled() - to enable the widget could be dragged
+     32. Complex Drag and Drop
+          how to drag and drop a button, including:
+          mouseMoveEvent - rewrite the event when mouse move with widget
+          mousePressEvent - rewrite the event when mouse click, including right and left click
+          QMimeData - container of MIME data
+          QDrag  - Qt drag object
+          QDrag.setHotSpot() - to set the position when drag hot spot occur
+          QDrag.exec_() - how to make drag operation start and ready to drop
+          setDropAction() - how to give the drop action
+----Painting-------------------------------------------------------------------------------------
+     33. Draw Text
+          how to draw the text into the widget, including:
+          paintEvent - rewrite the event when application draw the widget (when the application opened, or when the widget resized)
+          QPainter - Qt object to draw
+          QPainter.begin(), QPainter.end() - start and terminate drawing
+          QPainter.setPen() - set the pen parameters for painter
+          QPainter.setFont() - set the font parameters for painter
+          QPainter.drawText() - use painter to draw text
+     34. Draw Point
+          how to draw points into the widget, including:
+          QPainter.drawPoint() - use pointer to draw point
+          QWidget.size() - return the height and width of the widget
+     35. Draw Color
+          how to draw color rectangle into the widget, including:
+          QColor.setNamedColor() - set color by "#xxxxxx" rather than RGB
+          QPainter.setBrush() - set the background brush for painter
+          QPainter.drawRect() - use painter to draw rectangle
+     36. QPen
+          how to set QPen Object, including:
+          QPen.setStyle() - to set the pen's line style
+          QPen.setDashPattern() - to set customer dash pattern
+          QPainter.drawLine() - use painter to draw line
+     37. QBrush
+          how to set QBrush Object, including:
+          QBrush.setStyle() - to set the brush's style
+----completed example------------------------------------------------------------------------------------
+     38. Custom widget
+          a completed example of build up a custom widget and the signal/slot, including:
+          QWidget.setMinimumSize() - set the minimum size of widget
+----Widgets III-------------------------------------------------------------------------------------
+     39. Tab
+          how to create QTabWidget page, including:
+          QTabWidget.addTab() - add new tab page into tab widget
+          QTabWidget.setTabText() - set text title for tab controller
+          QFormLayout - form style layout
+          QFormLayout.addRow() - add a new row into form
+
+
+Codes:
+1.Basic qt application with a  sample widget - basic.py
+
+    import sys
+    from PyQt5.QtWidgets import QApplication, QWidget
+
+    if __name__ == '__main__':
+
+        app = QApplication(sys.argv)
+
+        w = QWidget()
+        w.resize(250, 150)
+        w.move(300, 300)
+        w.setWindowTitle('Simple')
+        w.show()
+
+        sys.exit(app.exec_())
+
+2.Icon - icon.py
+
+    import sys
+    from PyQt5.QtWidgets import QApplication, QWidget
+    from PyQt5.QtGui import QIcon
+
+    class Example(QWidget):
+
+        def __init__(self):
+            super(Example, self).__init__()
+
+            self.initUI()
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 300, 220)
+            self.setWindowTitle('Icon')
+            self.setWindowIcon(QIcon('web.png'))
+
+            self.show()
+
+    if __name__ == '__main__':
+
+        app = QApplication(sys.argv)
+        ex = Example()
+        sys.exit(app.exec_())
+
+3.Tooltip - tooltip.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QToolTip, QPushButton, QApplication
+    from PyQt5.QtGui import QFont
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            QToolTip.setFont(QFont('SansSerif', 10))
+
+            self.setToolTip('This is a <b>QWidget</b> widget')
+
+            btn = QPushButton('Button', self)
+              # QPushButton(string text, QWidget parent = None)
+            btn.setToolTip('This is a <b>QPushButton</b> widget')
+            btn.resize(btn.sizeHint())
+            btn.move(50, 50)
+
+            self.setGeometry(300, 300, 300, 200)
+            self.setWindowTitle('Tooltips')
+            self.show()
+
+4.Close - close.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QPushButton, QApplication
+    from PyQt5.QtCore import QCoreApplication
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            qbtn = QPushButton('Quit', self)
+            qbtn.clicked.connect(QCoreApplication.instance().quit)
+            qbtn.resize(qbtn.sizeHint())
+            qbtn.move(50, 50)
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Quit button')
+            self.show()
+
+5.Message - message.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QMessageBox, QApplication
+
+    class Example(QWidget):
+
+        def __init__(self):
+            super().__init__()
+
+            self.initUI()
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Message box')
+            self.show()
+
+        def closeEvent(self, event):
+              # Widget closing is different with application quit
+
+            reply = QMessageBox.question(self, 'Message',
+                "Are you sure to quit?",QMessageBox.Yes|QMessageBox.No,QMessageBox.No)
+                   # the final parameter is default choice
+
+            if reply == QMessageBox.Yes:
+                event.accept()
+            else:
+                event.ignore()
+
+6.Center - center.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QDesktopWidget, QApplication
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.resize(250, 150)
+            self.center()
+
+            self.setWindowTitle('Center')
+            self.show()
+
+        def center(self):
+
+            qr = self.frameGeometry()
+            cp = QDesktopWidget().availableGeometry().center()
+            qr.moveCenter(cp)
+            self.move(qr.topLeft())
+
+7.Status Bar - statusbar.py
+
+    import sys
+    from PyQt5.QtWidgets import QMainWindow, QApplication
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            self.statusBar().showMessage('Ready')
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Statusbar')
+            self.show()
+
+8.Menu Bar - menubar.py
+
+    import sys
+    from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QApplication
+    from PyQt5.QtGui import QIcon
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            exitAction = QAction(QIcon('exit.png'), '&Exit', self)
+
+            exitAction.setShortcut('Ctrl+Q')
+            exitAction.setStatusTip('Exit pplication')
+            exitAction.triggered.connect(qApp.quit)
+
+            self.statusBar()
+
+            menubar = self.menuBar()
+            menubar.setNativeMenuBar(False)
+            fileMenu = menubar.addMenu('&File')
+            fileMenu.addAction(exitAction)
+
+            self.setGeometry(300, 300, 300, 200)
+            self.setWindowTitle('Menubar')
+
+            self.show()
+
+9.Central Widget - example_menutoolbar.py
+
+    import sys
+    from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
+    from PyQt5.QtGui import QIcon
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            textEdit = QTextEdit()
+            self.setCentralWidget(textEdit)
+
+            self.setGeometry(300, 300, 350, 250)
+            self.setWindowTitle('Main window')
+            self.show()
+
+10. Absolute Position - absolute.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QLabel, QApplication
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            lbl1 = QLabel('Zetcode', self)
+            lbl1.move(15, 10)
+
+            lbl2 = QLabel('tutorials', self)
+            lbl2.move(35, 40)
+
+            lbl3 = QLabel('for programmers', self)
+            lbl3.move(55, 70)
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Absolute')
+            self.show()
+
+11.Box Layout - box.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QPushButton,
+       QHBoxLayout, QVBoxLayout, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            okButton = QPushButton("OK")
+            cancelButton = QPushButton("Cancel")
+
+            hbox = QHBoxLayout()
+            hbox.addStretch(1) # can add 1 or more
+            hbox.addWidget(okButton)
+            hbox.addWidget(cancelButton)
+
+            vbox = QVBoxLayout()
+            vbox.addStretch(1)
+            vbox.addLayout(hbox)
+
+            self.setLayout(vbox)
+
+            self.setGeometry(300, 300, 300, 150)
+            self.setWindowTitle('Buttons')
+            self.show()
+
+12.Grid Layout - grid.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QGridLayout,
+        QPushButton, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            grid = QGridLayout()
+            self.setLayout(grid)
+
+            names = ['Cls', 'Bck', '', 'Close',
+                     '7', '8', '9', '/',
+                    '4', '5', '6', '*',
+                     '1', '2', '3', '-',
+                    '0', '.', '=', '+']
+
+            positions = [(i,j) for i in range(5) for j in range(4)]
+
+            for position, name in zip(positions, names):
+
+                if name == '':
+                    continue
+                button = QPushButton(name)
+                grid.addWidget(button, *position)
+
+            self.move(300, 150)
+            self.setWindowTitle('Calculator')
+            self.show()
+
+13.Extra Layout Example - example_layout.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QLabel, QLineEdit,
+        QTextEdit, QGridLayout, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            title = QLabel('Title')
+            author = QLabel('Author')
+            review = QLabel('Review')
+
+            titleEdit = QLineEdit()
+            authorEdit = QLineEdit()
+            reviewEdit = QTextEdit()
+
+            grid = QGridLayout()
+            grid.setSpacing(10)
+
+            grid.addWidget(title, 1, 0)
+            grid.addWidget(titleEdit, 1, 1)
+
+            grid.addWidget(author, 2, 0)
+            grid.addWidget(authorEdit, 2, 1)
+
+            grid.addWidget(review, 3, 0)
+            grid.addWidget(reviewEdit, 3, 1, 5, 1)
+
+            self.setLayout(grid)
+
+            self.setGeometry(300, 300, 350, 300)
+            self.setWindowTitle('Review')
+            self.show()
+
+14.Signal and Slot - signal_slot.py
+
+    import sys
+    from PyQt5.QtCore import Qt
+    from PyQt5.QtWidgets import (QWidget, QLCDNumber, QSlider,
+        QVBoxLayout, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            lcd = QLCDNumber(self)
+            sld = QSlider(Qt.Horizontal, self)
+
+            vbox = QVBoxLayout()
+            vbox.addWidget(lcd)
+            vbox.addWidget(sld)
+
+            self.setLayout(vbox)
+            sld.valueChanged.connect(lcd.display)
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Signal & slot')
+            self.show()
+
+15.Reimplement Event Handle - reimplement_event_handle.py
+
+    import sys
+    from PyQt5.QtCore import Qt
+    from PyQt5.QtWidgets import QWidget, QApplication
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('Event handler')
+            self.show()
+
+        def keyPressEvent(self, e):
+
+            if e.key() == Qt.Key_Escape:
+                self.close()
+
+16.Event Sender - event_sender.py
+
+    import sys
+    from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            btn1 = QPushButton("Button 1", self)
+            btn1.move(30, 50)
+
+            btn2 = QPushButton("Button 2", self)
+            btn2.move(150, 50)
+
+            btn1.clicked.connect(self.buttonClicked)
+            btn2.clicked.connect(self.buttonClicked)
+
+            self.statusBar()
+
+            self.setGeometry(300, 300, 290, 150)
+            self.setWindowTitle('Event sender')
+            self.show()
+
+        def buttonClicked(self):
+
+            sender = self.sender()
+            self.statusBar().showMessage(sender.text() + ' was pressed')
+
+17.Emit Signal
+
+    import sys
+    from PyQt5.QtCore import pyqtSignal, QObject
+    from PyQt5.QtWidgets import QMainWindow, QApplication
+
+    class Communicate(QObject):
+
+        closeApp = pyqtSignal()
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            self.c = Communicate()
+            self.c.closeApp.connect(self.close)
+
+            self.setGeometry(300, 300, 290, 150)
+            self.setWindowTitle('Emit signal')
+            self.show()
+
+
+        def mousePressEvent(self, event):
+
+            self.c.closeApp.emit()
+
+18.Input Dialog - inputdialog.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit,
+        QInputDialog, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.btn = QPushButton('Dialog', self)
+            self.btn.move(20, 20)
+            self.btn.clicked.connect(self.showDialog)
+
+            self.le = QLineEdit(self)
+            self.le.move(130, 22)
+
+            self.setGeometry(300, 300, 290, 150)
+            self.setWindowTitle('Input dialog')
+            self.show()
+
+        def showDialog(self):
+
+            text, ok = QInputDialog.getText(self, 'Input Dialog',
+                'Enter your name:')
+
+            if ok:
+                self.le.setText(str(text))
+
+19.Color Dialog - colordialog.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QPushButton, QFrame,
+        QColorDialog, QApplication)
+    from PyQt5.QtGui import QColor
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            col = QColor(0, 0, 0)
+
+            self.btn = QPushButton('Dialog', self)
+            self.btn.move(20, 20)
+
+            self.btn.clicked.connect(self.showDialog)
+
+            self.frm = QFrame(self)
+            self.frm.setStyleSheet("QWidget { background-color: %s }"
+                % col.name())
+            self.frm.setGeometry(130, 22, 100, 100)
+
+            self.setGeometry(300, 300, 250, 180)
+            self.setWindowTitle('Color dialog')
+            self.show()
+
+        def showDialog(self):
+
+            col = QColorDialog.getColor()
+
+            if col.isValid():
+                self.frm.setStyleSheet("QWidget { background-color: %s }"
+                    % col.name())
+
+20.Font Dialog - fontdialog.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QPushButton,
+        QSizePolicy, QLabel, QFontDialog, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            vbox = QVBoxLayout()
+
+            btn = QPushButton('Dialog', self)
+            btn.setSizePolicy(QSizePolicy.Fixed,
+                QSizePolicy.Fixed)
+
+            btn.move(20, 20)
+
+            vbox.addWidget(btn)
+
+            btn.clicked.connect(self.showDialog)
+
+            self.lbl = QLabel('Knowledge only matters', self)
+            self.lbl.move(130, 20)
+
+            vbox.addWidget(self.lbl)
+            self.setLayout(vbox)
+
+            self.setGeometry(300, 300, 250, 180)
+            self.setWindowTitle('Font dialog')
+            self.show()
+
+        def showDialog(self):
+
+            font, ok = QFontDialog.getFont()
+            if ok:
+                self.lbl.setFont(font)
+
+21.File Dialog - filedialog.py
+
+    import sys
+    from PyQt5.QtWidgets import (QMainWindow, QTextEdit,
+        QAction, QFileDialog, QApplication)
+    from PyQt5.QtGui import QIcon
+
+    class Example(QMainWindow):
+
+        def initUI(self):
+
+            self.textEdit = QTextEdit()
+            self.setCentralWidget(self.textEdit)
+            self.statusBar()
+
+            openFile = QAction(QIcon('open.png'), 'Open', self)
+            openFile.setShortcut('Ctrl+O')
+            openFile.setStatusTip('Open new File')
+            openFile.triggered.connect(self.showDialog)
+
+            menubar = self.menuBar()
+            fileMenu = menubar.addMenu('&File')
+            fileMenu.addAction(openFile)
+
+            self.setGeometry(300, 300, 350, 300)
+            self.setWindowTitle('File dialog')
+            self.show()
+
+        def showDialog(self):
+
+            fname = QFileDialog.getOpenFileName(self, 'Open file', '/home')
+
+            if fname[0]:
+                f = open(fname[0], 'r')
+
+                with f:
+                    data = f.read()
+                    self.textEdit.setText(data)
+
+22.Check Box - checkbox.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QCheckBox, QApplication
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            cb = QCheckBox('Show title', self)
+            cb.move(20, 20)
+            cb.toggle()
+            cb.stateChanged.connect(self.changeTitle)
+
+            self.setGeometry(300, 300, 250, 150)
+            self.setWindowTitle('QCheckBox')
+            self.show()
+
+        def changeTitle(self, state):
+
+            if state == Qt.Checked:
+                self.setWindowTitle('QCheckBox')
+            else:
+                self.setWindowTitle('')
+
+23.Toggle Button - toggle_button.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QPushButton,
+        QFrame, QApplication)
+    from PyQt5.QtGui import QColor
+
+    class Example(QWidget):
+
+        def __init__(self):
+            super().__init__()
+
+            self.initUI()
+
+        def initUI(self):
+
+            self.col = QColor(0, 0, 0)
+
+            redb = QPushButton('Red', self)
+            redb.setCheckable(True)
+            redb.move(10, 10)
+
+            redb.clicked[bool].connect(self.setColor)
+
+            redb = QPushButton('Green', self)
+            redb.setCheckable(True)
+            redb.move(10, 60)
+
+            redb.clicked[bool].connect(self.setColor)
+
+            blueb = QPushButton('Blue', self)
+            blueb.setCheckable(True)
+            blueb.move(10, 110)
+
+            blueb.clicked[bool].connect(self.setColor)
+
+            self.square = QFrame(self)
+            self.square.setGeometry(150, 20, 100, 100)
+            self.square.setStyleSheet("QWidget { background-color: %s }" %
+                self.col.name())
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('Toggle button')
+            self.show()
+
+        def setColor(self, pressed):
+
+            source = self.sender()
+
+            if pressed:
+                val = 255
+            else: val = 0
+
+            if source.text() == "Red":
+                self.col.setRed(val)
+            elif source.text() == "Green":
+                self.col.setGreen(val)
+            else:
+                self.col.setBlue(val)
+
+            self.square.setStyleSheet("QFrame { background-color: %s }" %
+                self.col.name())
+
+24.Slider - slider.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QSlider,
+        QLabel, QApplication)
+    from PyQt5.QtCore import Qt
+    from PyQt5.QtGui import QPixmap
+
+    class Example(QWidget):
+
+        def __init__(self):
+            super().__init__()
+
+            self.initUI()
+
+        def initUI(self):
+
+            sld = QSlider(Qt.Horizontal, self)
+            sld.setFocusPolicy(Qt.NoFocus)
+            sld.setGeometry(30, 40, 100, 30)
+            sld.valueChanged[int].connect(self.changeValue)
+
+            self.label = QLabel(self)
+            self.label.setPixmap(QPixmap('mute.png'))
+            self.label.setGeometry(160, 40, 80, 30)
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('QSlider')
+            self.show()
+
+        def changeValue(self, value):
+
+            if value == 0:
+                self.label.setPixmap(QPixmap('mute.png'))
+            elif value > 0 and value <= 30:
+                self.label.setPixmap(QPixmap('min.png'))
+            elif value > 30 and value < 80:
+                self.label.setPixmap(QPixmap('med.png'))
+            else:
+                self.label.setPixmap(QPixmap('max.png'))
+
+25.Progress Bar - progress_bar.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QProgressBar,
+        QPushButton, QApplication)
+    from PyQt5.QtCore import QBasicTimer
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.pbar = QProgressBar(self)
+            self.pbar.setGeometry(30, 40, 200, 25)
+
+            self.btn = QPushButton('Start', self)
+            self.btn.move(40, 80)
+            self.btn.clicked.connect(self.doAction)
+
+            self.timer = QBasicTimer()
+            self.step = 0
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('QProgressBar')
+            self.show()
+
+        def timerEvent(self, e):
+
+            if self.step >= 100:
+                self.timer.stop()
+                self.btn.setText('Finished')
+                return
+
+            self.step = self.step + 1
+            self.pbar.setValue(self.step)
+
+        def doAction(self):
+
+            if self.timer.isActive():
+                self.timer.stop()
+                self.btn.setText('Start')
+            else:
+                self.timer.start(100, self)
+                self.btn.setText('Stop')
+
+26.Calendar - calendar.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QCalendarWidget,
+        QLabel, QApplication)
+    from PyQt5.QtCore import QDate
+
+    class Example(QWidget):
+
+        def __init__(self):
+            super().__init__()
+
+            self.initUI()
+
+        def initUI(self):
+
+            cal = QCalendarWidget(self)
+            cal.setGridVisible(True)
+            cal.move(20, 20)
+            cal.clicked[QDate].connect(self.showDate)
+
+            self.lbl = QLabel(self)
+            date = cal.selectedDate()
+            self.lbl.setText(date.toString())
+            self.lbl.move(130, 260)
+
+            self.setGeometry(300, 300, 350, 300)
+            self.setWindowTitle('Calendar')
+            self.show()
+
+        def showDate(self, date):
+
+            self.lbl.setText(date.toString())
+
+27.Pixmap - pixmap.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QHBoxLayout,
+        QLabel, QApplication)
+    from PyQt5.QtGui import QPixmap
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            hbox = QHBoxLayout(self)
+            pixmap = QPixmap("redrock.png")
+
+            lbl = QLabel(self)
+            lbl.setPixmap(pixmap)
+
+            hbox.addWidget(lbl)
+            self.setLayout(hbox)
+
+            self.move(300, 200)
+            self.setWindowTitle('Red Rock')
+            self.show()
+
+28.Line Edit - lineedit.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QLabel,
+        QLineEdit, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.lbl = QLabel(self)
+            qle = QLineEdit(self)
+
+            qle.move(60, 100)
+            self.lbl.move(60, 40)
+
+            qle.textChanged[str].connect(self.onChanged)
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('QLineEdit')
+            self.show()
+
+        def onChanged(self, text):
+
+            self.lbl.setText(text)
+            self.lbl.adjustSize()
+
+29.Splitter - splitter.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QHBoxLayout, QFrame,
+        QSplitter, QStyleFactory, QApplication)
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            hbox = QHBoxLayout(self)
+
+            topleft = QFrame(self)
+            topleft.setFrameShape(QFrame.StyledPanel)
+
+            topright = QFrame(self)
+            topright.setFrameShape(QFrame.StyledPanel)
+
+            bottom = QFrame(self)
+            bottom.setFrameShape(QFrame.StyledPanel)
+
+            splitter1 = QSplitter(Qt.Horizontal)
+            splitter1.addWidget(topleft)
+            splitter1.addWidget(topright)
+
+            splitter2 = QSplitter(Qt.Vertical)
+            splitter2.addWidget(splitter1)
+            splitter2.addWidget(bottom)
+
+            hbox.addWidget(splitter2)
+            self.setLayout(hbox)
+
+            self.setGeometry(300, 300, 300, 200)
+            self.setWindowTitle('QSplitter')
+            self.show()
+
+        def onChanged(self, text):
+
+            self.lbl.setText(text)
+            self.lbl.adjustSize()
+
+30.Combo Box - combobox.py
+
+    import sys
+    from PyQt5.QtWidgets import (QWidget, QLabel,
+        QComboBox, QApplication)
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.lbl = QLabel("Ubuntu", self)
+
+            combo = QComboBox(self)
+            combo.addItem("Ubuntu")
+            combo.addItem("Mandriva")
+            combo.addItem("Fedora")
+            combo.addItem("Arch")
+            combo.addItem("Gentoo")
+
+            combo.move(50, 50)
+            self.lbl.move(50, 150)
+
+            combo.activated[str].connect(self.onActivated)
+
+            self.setGeometry(300, 300, 300, 200)
+            self.setWindowTitle('QComboBox')
+            self.show()
+
+        def onActivated(self, text):
+
+            self.lbl.setText(text)
+            self.lbl.adjustSize()
+
+31.Simple Drag and Drop - drag_drop_simple.py
+
+    import sys
+    from PyQt5.QtWidgets import (QPushButton, QWidget,
+        QLineEdit, QApplication)
+
+    class Button(QPushButton):
+
+        def __init__(self, title, parent):
+            super().__init__(title, parent)
+
+            self.setAcceptDrops(True)
+
+        def dragEnterEvent(self, e):
+
+            if e.mimeData().hasFormat('text/plain'):
+                e.accept()
+            else:
+                e.ignore()
+
+        def dropEvent(self, e):
+
+            self.setText(e.mimeData().text())
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            edit = QLineEdit('', self)
+            edit.setDragEnabled(True)
+            edit.move(30, 65)
+
+            button = Button("Button", self)
+            button.move(190, 65)
+
+            self.setWindowTitle('Simple drag & drop')
+            self.setGeometry(300, 300, 300, 150)
+
+32.Complex Drag and Drop - drag_drop_button.py
+
+    import sys
+    from PyQt5.QtWidgets import QPushButton, QWidget, QApplication
+    from PyQt5.QtCore import Qt, QMimeData
+    from PyQt5.QtGui import QDrag
+
+    class Button(QPushButton):
+
+        def mouseMoveEvent(self, e):
+
+            if e.buttons() != Qt.RightButton:
+                return
+
+            mimeData = QMimeData()
+
+            drag = QDrag(self)
+            drag.setMimeData(mimeData)
+            drag.setHotSpot(e.pos() - self.rect().topLeft())
+
+            dropAction = drag.exec_(Qt.MoveAction)
+
+        def mousePressEvent(self, e):
+
+            QPushButton.mousePressEvent(self, e)
+
+            if e.button() == Qt.LeftButton:
+                print('press')
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setAcceptDrops(True)
+
+            self.button = Button('Button', self)
+            self.button.move(100, 65)
+
+            self.setWindowTitle('Click or Move')
+            self.setGeometry(300, 300, 280, 150)
+
+        def dragEnterEvent(self, e):
+
+            e.accept()
+
+        def dropEvent(self, e):
+
+            position = e.pos()
+            self.button.move(position)
+
+            e.setDropAction(Qt.MoveAction)
+            e.accept()
+
+33.Draw Text - draw_text.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QApplication
+    from PyQt5.QtGui import QPainter, QColor, QFont
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.text = u'\u041b\u0435\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\
+    \u0435\u0432\u0438\u0447 \u0422\u043e\u043b\u0441\u0442\u043e\u0439: \n\
+    \u0410\u043d\u043d\u0430 \u041a\u0430\u0440\u0435\u043d\u0438\u043d\u0430'
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('Draw text')
+            self.show()
+
+        def paintEvent(self, event):
+
+            qp = QPainter()
+            qp.begin(self)
+            self.drawText(event, qp)
+            qp.end()
+
+        def drawText(self, event, qp):
+
+            qp.setPen(QColor(168, 34, 3))
+            qp.setFont(QFont('Decorative', 10))
+            qp.drawText(event.rect(), Qt.AlignCenter, self.text)
+
+34.Draw Point - draw_point.py
+
+    import sys, random
+    from PyQt5.QtWidgets import QWidget, QApplication
+    from PyQt5.QtGui import QPainter, QColor, QPen
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 280, 170)
+            self.setWindowTitle('Points')
+            self.show()
+
+        def paintEvent(self, e):
+
+            qp = QPainter()
+            qp.begin(self)
+            self.drawPoints(qp)
+            qp.end()
+
+        def drawPoints(self, qp):
+
+            qp.setPen(Qt.red)
+            size = self.size()
+
+            for i in range(1000):
+                x = random.randint(1, size.width()-1)
+                y = random.randint(1, size.height()-1)
+                qp.drawPoint(x, y)
+
+35.Draw Color - draw_color.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QApplication
+    from PyQt5.QtGui import QPainter, QColor, QBrush
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 350, 100)
+            self.setWindowTitle('Colours')
+            self.show()
+
+        def paintEvent(self, e):
+
+            qp = QPainter()
+            qp.begin(self)
+            self.drawRectangles(qp)
+            qp.end()
+
+        def drawRectangles(self, qp):
+
+            col = QColor(0, 0, 0)
+            col.setNamedColor('#d4d4d4')
+            qp.setPen(col)
+
+            qp.setBrush(QColor(200, 0, 0))
+            qp.drawRect(10, 15, 90, 60)
+
+            qp.setBrush(QColor(255, 80, 0, 160))
+            qp.drawRect(130, 15, 90, 60)
+
+            qp.setBrush(QColor(25, 0, 90, 200))
+            qp.drawRect(250, 15, 90, 60)
+
+36.QPen - qpen.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QApplication
+    from PyQt5.QtGui import QPainter, QColor, QPen
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 280, 270)
+            self.setWindowTitle('Pen styles')
+            self.show()
+
+        def paintEvent(self, e):
+
+            qp = QPainter()
+            qp.begin(self)
+            self.drawLines(qp)
+            qp.end()
+
+        def drawLines(self, qp):
+
+            pen = QPen(Qt.black, 2, Qt.SolidLine)
+
+            qp.setPen(pen)
+            qp.drawLine(20, 40, 250, 40)
+
+            pen.setStyle(Qt.DashLine)
+            qp.setPen(pen)
+            qp.drawLine(20, 80, 250, 80)
+
+            pen.setStyle(Qt.DashDotLine)
+            qp.setPen(pen)
+            qp.drawLine(20, 120, 250, 120)
+
+            pen.setStyle(Qt.DotLine)
+            qp.setPen(pen)
+            qp.drawLine(20, 160, 250, 160)
+
+            pen.setStyle(Qt.DashDotDotLine)
+            qp.setPen(pen)
+            qp.drawLine(20, 200, 250, 200)
+
+            pen.setStyle(Qt.CustomDashLine)
+            pen.setDashPattern([1, 4, 5, 4])
+            qp.setPen(pen)
+            qp.drawLine(20, 240, 250, 240)
+
+37.QBrush - qbrush.py
+
+    import sys
+    from PyQt5.QtWidgets import QWidget, QApplication
+    from PyQt5.QtGui import QPainter, QBrush
+    from PyQt5.QtCore import Qt
+
+    class Example(QWidget):
+
+        def initUI(self):
+
+            self.setGeometry(300, 300, 355, 280)
+            self.setWindowTitle('Brushes')
+            self.show()
+
+        def paintEvent(self, e):
+
+            qp = QPainter()
+            qp.begin(self)
+            self.drawBrushes(qp)
+            qp.end()
+
+        def drawBrushes(self, qp):
+
+            brush = QBrush(Qt.SolidPattern)
+            qp.setBrush(brush)
+            qp.drawRect(10, 15, 90, 60)
+
+            brush.setStyle(Qt.Dense1Pattern)
+            qp.setBrush(brush)
+            qp.drawRect(130, 15, 90, 60)
+
+            brush.setStyle(Qt.Dense2Pattern)
+            qp.setBrush(brush)
+            qp.drawRect(250, 15, 90, 60)
+
+            brush.setStyle(Qt.Dense3Pattern)
+            qp.setBrush(brush)
+            qp.drawRect(10, 105, 90, 60)
+
+            brush.setStyle(Qt.DiagCrossPattern)
+            qp.setBrush(brush)
+            qp.drawRect(10, 105, 90, 60)
+
+            brush.setStyle(Qt.Dense5Pattern)
+            qp.setBrush(brush)
+            qp.drawRect(130, 105, 90, 60)
+
+            brush.setStyle(Qt.Dense6Pattern)
+            qp.setBrush(brush)
+            qp.drawRect(250, 105, 90, 60)
+
+            brush.setStyle(Qt.HorPattern)
+            qp.setBrush(brush)
+            qp.drawRect(10, 195, 90, 60)
+
+            brush.setStyle(Qt.VerPattern)
+            qp.setBrush(brush)
+            qp.drawRect(130, 195, 90, 60)
+
+            brush.setStyle(Qt.BDiagPattern)
+            qp.setBrush(brush)
+            qp.drawRect(250, 195, 90, 60)
+
+39.Tab - tab.py
+
+    import sys
+    from PyQt5.QtCore import *
+    from PyQt5.QtGui import *
+    from PyQt5.QtWidgets import (QTabWidget, QApplication, QWidget, QFormLayout,
+        QLineEdit, QHBoxLayout, QRadioButton, QLabel, QCheckBox)
+
+    class tabdemo(QTabWidget):
+       def __init__(self, parent = None):
+          super(tabdemo, self).__init__(parent)
+          self.tab1 = QWidget()
+          self.tab2 = QWidget()
+          self.tab3 = QWidget()
+
+          self.addTab(self.tab1,"Tab 1")
+          self.addTab(self.tab2,"Tab 2")
+          self.addTab(self.tab3,"Tab 3")
+          self.tab1UI()
+          self.tab2UI()
+          self.tab3UI()
+          self.setWindowTitle("tab demo")
+
+       def tab1UI(self):
+          layout = QFormLayout()
+          layout.addRow("Name",QLineEdit())
+          layout.addRow("Address",QLineEdit())
+          self.setTabText(0,"Contact Details")
+          self.tab1.setLayout(layout)
+
+       def tab2UI(self):
+          layout = QFormLayout()
+          sex = QHBoxLayout()
+          sex.addWidget(QRadioButton("Male"))
+          sex.addWidget(QRadioButton("Female"))
+          layout.addRow(QLabel("Sex"),sex)
+          layout.addRow("Date of Birth",QLineEdit())
+          self.setTabText(1,"Personal Details")
+          self.tab2.setLayout(layout)
+
+       def tab3UI(self):
+          layout = QHBoxLayout()
+          layout.addWidget(QLabel("subjects"))
+          layout.addWidget(QCheckBox("Physics"))
+          layout.addWidget(QCheckBox("Maths"))
+          self.setTabText(2,"Education Details")
+          self.tab3.setLayout(layout)

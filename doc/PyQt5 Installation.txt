@@ -1,0 +1,74 @@
+1. Installation
+
+  Demonstrate the installation of PyQt5 for Qt5.6.0/Python2.7.11 on OSX EI and Windows 10.
+
+  1.1 On OSX EI
+
+    - install python2.7.11
+        - python must under usr/local/, otherwise the following steps may have python error, you could use brew to re-install python then python will under usr/local/Cellar.
+
+    - install sip4.17
+        - download sip 4.17 : https://riverbankcomputing.com/software/sip/download;
+        - extract zip to any custom folder (e.g. ~/Software/sip-4.17);
+        - open terminal and turn to sip folder, run command: python configure.py;
+        - run command: sudo make;
+        - run command: sudo make install;
+        - sip installation finished.
+
+    - install Qt5.6.0
+        - download Qt offline installer for OSX, and run：http://www.qt.io/download/;
+        - install Qt to any custom folder (e.g. ~/Software/Qt);
+        - manually add qt bin to environment, open terminal and run command: export PATH=“Qt bin path”:$PATH;
+        - Qt installation finished.
+
+    - install PyQt5
+        - download PyQt5：https://riverbankcomputing.com/software/pyqt/download5;
+        - extract zip to any custom folder (e.g. ~/Software/PyQt);
+        - turn to PyQt5 folder，run command[you may need to manually point working sip path out]: python configure.py [--sip *sip path:/usr/local/Cellar/python/2.7.11/Frameworks/python.framework/Versions/2.7/bin/sip*];
+        - run command: sudo make;
+        - run command: sudo make install;
+        - PyQt5 installation finished.
+
+    1.2 On Windows 10
+
+    - install Python2.7.11
+        - download appropriate python version，python 2.7.11 windows x64 MSI: https://www.python.org/downloads/release/python-2711/;
+        - install Python to any custom folder (e.g. /Python27);
+        - add Python path to environment;
+        - Python installation finished.
+
+    - install VS 2015
+        - download appropriate Visual Studio 2015 installer and install (I use 32-bit VS on my 64-bit machine and okay);
+        - IMPORTANT: VS 2015 do not install C++ by default, so you should check C++ in the "programming languages" list when install (this step could solve the problem of missing nmake or cl);
+        - VS 2015 installation finished;
+        - open VS 2015 -> VC folder, and run "vcvarsall.bat" as administrator;
+        - *if you have already installed VS 2015 without checked C++: re-run VS 2015 installer, then check C++ in "modify"->”programming languages“ and click update button.
+
+    - install Qt5.6.0
+        - download Qt offline installer on official website, x64 for windows VS 2015: http://www.qt.io/download-open-source/;
+        - install Qt to any custom folder;
+        - manually add Qt bin to environment;
+        - Qt installation finished;
+        - *if you encounter the errors of missing MSVCR120.dll/MSVCP120.dll or other dlls, search and install "Microsoft common software run-time library set").
+
+    - install sip4.17
+        - download sip-4.17: https://riverbankcomputing.com/software/sip/download;
+        - extract zip to any custom folder;
+        - open developer command prompt for VS 2015, turn to sip folder, run command: python configure.py;
+        - run command: nmake (there are two nmake versions, 32-bit nmake under /vc/bin folder and 64-bit one under /vc/bin/amd64, you could choose one or use default nmake);
+        - run command: nmake install;
+        - sip installation finished;
+        - *if you encounter the error of "module machine type conflicts with target machine type", delete whole sip folder and re-extract sip, using "VS 2015 Native Tools Command Prompt" rather than "developer cmd for VS 2015" to install (native tools have two versions, namely x64 and x86, choose the one whose bits is same as "module machine type").
+
+    - install PyQt5
+        - download PyQt5: https://riverbankcomputing.com/software/pyqt/download5;
+        - extract zip to any custom folder;
+        - open developer command prompt and turn to PyQt5 folder, run command: python configure.py [--disable QtNfc, add this option if you encountre QtNfc bug in the following steps];
+        - run command: nmake;
+        - run command: nmake install;
+        - PyQt5 installation finished;
+        - *if you encounter the error of "module machine type conflicts with target machine type", just refer to the solution in sip installation
+
+2. Check installation
+
+  run "import PyQt5" in python terminal to check if PyQt5 module could be successfully imported.
