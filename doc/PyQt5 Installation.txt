@@ -1,32 +1,46 @@
 1. Installation
 
-  Demonstrate the installation of PyQt5 for Qt5.6.0/Python2.7.11 on OSX EI and Windows 10.
+  Demonstrate the installation of PyQt5 for Qt5.6.0/Python2.7.11/sip4.17 on OSX EI and Windows 10.
 
   1.1 On OSX EI
 
-    - install python2.7.11
-        - python must under usr/local/, otherwise the following steps may have python error, you could use brew to re-install python then python will under usr/local/Cellar.
+    The quickest way to install pyqt on mac is using MacPorts.
 
-    - install sip4.17
+    - install python2.7.11
+        - python must under /usr/local/, otherwise the following steps may have python error, you could use brew to re-install python then python will under /usr/local/Cellar.
+
+    - install sip4.17 (PLEASE USE THE LATEST VERSION IF YOU USE NEWEST PYQT)
         - download sip 4.17 : https://riverbankcomputing.com/software/sip/download;
         - extract zip to any custom folder (e.g. ~/Software/sip-4.17);
-        - open terminal and turn to sip folder, run command: python configure.py;
-        - run command: sudo make;
-        - run command: sudo make install;
+        - open terminal and turn to sip folder, run command: 
+              python configure.py
+        - run command: 
+              sudo make
+        - run command: 
+              sudo make install
         - sip installation finished.
 
-    - install Qt5.6.0
+    - install Qt5.6.0 (PLEASE USE THE LATEST VERSION IF YOU USE NEWEST PYQT)
         - download Qt offline installer for OSX, and run：http://www.qt.io/download/;
         - install Qt to any custom folder (e.g. ~/Software/Qt);
-        - manually add qt bin to environment, open terminal and run command: export PATH=“Qt bin path”:$PATH;
+        - manually add qt bin to environment, open terminal and run command: 
+              export PATH=QtBinPath:$PATH
+              *IMPORTANT: you must modify QtBinPath to you own qt bin path, for mine, ~/Software/Qt5.6.0/5.6/clang_64/bin/*
         - Qt installation finished.
 
     - install PyQt5
         - download PyQt5：https://riverbankcomputing.com/software/pyqt/download5;
         - extract zip to any custom folder (e.g. ~/Software/PyQt);
-        - turn to PyQt5 folder，run command[you may need to manually point working sip path out]: python configure.py [--sip *sip path:/usr/local/Cellar/python/2.7.11/Frameworks/python.framework/Versions/2.7/bin/sip*];
-        - run command: sudo make;
-        - run command: sudo make install;
+        - turn to PyQt5 folder，run command: 
+              python configure.py 
+              *IMPORTANT: you may need to manually point qmake or working sip path out as follow*
+              [--qmake QMakePath(e.g. QTPATH/bin/qmake)] 
+              [--sip SipPath(e.g. :/usr/local/Cellar/python/2.7.11/Frameworks/python.framework/Versions/2.7/bin/sip)]
+              e.g. python configure.py --qmake ~/Software/Qt5.6.0/5.6/clang_64/bin/qmake --sip /usr/local/Cellar/python/2.7.11/Frameworks/python.framework/Versions/2.7/bin/sip
+        - run command: 
+              sudo make
+        - run command: 
+              sudo make install
         - PyQt5 installation finished.
 
     1.2 On Windows 10
